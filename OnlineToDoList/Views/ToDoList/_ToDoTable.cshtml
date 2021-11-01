@@ -1,0 +1,66 @@
+﻿@model IEnumerable<OnlineToDoList.Models.ToDoViewModel>
+<div id="progressBar">
+    <div class="progress">
+        <div class="progress-bar" role="progressbar"
+             style="width:@(Html.AttributeEncode(ViewBag.percentageCompleted))%"></div>
+    </div>
+</div>
+<table class="table">
+    @Html.ActionLink("Create New Task", "Create")
+    <tr>
+        <td>
+            @Html.DisplayNameFor(model => model.IsDone)
+        </td>
+        <th>
+            @Html.DisplayNameFor(model => model.Description)
+        </th>
+        
+        <th>
+            @Html.DisplayNameFor(model => model.StartDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DueDate)
+        </th>
+        @*<th>
+            @Html.DisplayNameFor(model => model.TaskPriority)
+        </th>*@
+    </tr>
+    @foreach (var item in Model)
+    {
+
+        <tr>
+            <td>
+                @Html.CheckBoxFor(modelItem => item.IsDone, new { id = item.Id, @class = "ActiveCheck" })
+            </td>
+            <td>
+                @if (!item.IsDone)
+                {
+                    <div>
+                        @Html.DisplayFor(modelItem => item.Description)<br />
+                        <span>last modified on @Html.DisplayFor(modelItem => item.ModifiedDate)</span>
+                    </div>
+                }
+
+                else
+                {
+                    <div class="onCheckBoxCheckedEvent">
+                        @Html.DisplayFor(modelItem => item.Description) <br />
+                        <span>last modified on @Html.DisplayFor(modelItem => item.ModifiedDate)</span>
+                    </div>
+                }
+            </td>
+            <td> @Html.DisplayFor(modelItem => item.StartDate)</td>
+            <td> @Html.DisplayFor(modelItem => item.DueDate)</td>
+            @*<td>
+                 @Html.DisplayFor(modelItem => item.TaskPriority)
+            </td>*@
+
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+            </td>
+        </tr>
+    }
+
+</table>
+<script src="~/Scripts/Custom Scripts/AddCheckBoxListener.js"></script>

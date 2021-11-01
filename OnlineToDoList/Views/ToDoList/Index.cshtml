@@ -1,0 +1,12 @@
+﻿@model OnlineToDoList.Models.ToDoViewModel
+
+
+<h2>My ToDo List </h2>
+@*@Html.ActionLink("Create", "Cre", new { id = item.Id }) |*@
+
+<div id="tableDiv"></div>
+@section Scripts{
+    <script src="~/Scripts/Custom Scripts/BuildTable.js"></script>
+    <script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
+    @Scripts.Render("~/bundles/jqueryval")
+}
