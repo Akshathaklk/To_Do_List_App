@@ -17,6 +17,7 @@ It is a simple online TODO list app built using ASP .Net MVC  code first approac
 * A user gets registered with the Username = test and Password = pwd123 after running these commands as per given in the document. Login can be done using these credentials. New user can get registered before login.
 
 ## Future Enhancements
+* Adding test cases to the application.
 * Prioritizing each task accordinlgy as Low, Medium and High.
 * Setting up remainders for the task completion.
 * Sharing the task status with other users.
